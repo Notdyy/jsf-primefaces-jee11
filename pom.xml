@@ -31,11 +31,13 @@
 		</developer>
 	</developers>
 	<scm>
-		<connection />
-		<developerConnection />
-		<tag />
-		<url />
+		<connection>scm:git:https://github.com/Notdyy/jsf-primefaces-jee11.git</connection>
+		<developerConnection>
+			scm:git:git@github.com:Notdyy/jsf-primefaces-jee11.git</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/Notdyy/jsf-primefaces-jee11</url>
 	</scm>
+
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
