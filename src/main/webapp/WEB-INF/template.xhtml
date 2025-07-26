@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    lang="th"
+    xml:lang="th">
+<h:head>
+    <title><ui:insert name="title">My Page</ui:insert></title>
+</h:head>
+
+<h:body>
+    <h:form styleClass="p-m-0 p-p-0">
+        <p:outputPanel
+            styleClass="topbar p-d-flex p-jc-between p-ai-center p-p-2 p-shadow-2 mt-0"
+            style="background-color:#f4f4f4;">
+            <div>
+                <h:outputText value="เวอร์ชั่น : " />
+                <h:outputText value="#{project['version']}" />
+                <span>&nbsp;|&nbsp;</span>
+                <h:outputText value="ปรับปรุง : " />
+                <h:outputText value="#{project['timestamp']}" />
+                <span>&nbsp;|&nbsp;</span> <i class="pi pi-prime"></i>
+                <h:outputText value=" #{project['primefaces.version']}" />
+            </div>
+        </p:outputPanel>
+
+        <ui:insert
+            name="content"
+            styleClass="p-p-3" />
+
+
+        <h:outputStylesheet
+            library="webjars"
+            name="primeflex/3.3.1/primeflex.min.css" />
+    </h:form>
+</h:body>
+</html>

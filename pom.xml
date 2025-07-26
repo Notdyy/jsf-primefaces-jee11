@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>my.example</groupId>
+	<artifactId>jsf-primefaces-jee11</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>jsf-primefaces-jee11</name>
+
+	<description>
+		A Jakarta EE 11 web application template using JSF 4 and PrimeFaces 15
+		Ideal for bootstrapping modern enterprise projects with CDI, Facelets,
+		and Maven WAR packaging.
+	</description>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<id>nawaphon.ma</id>
+			<name>Nawaphon Makronsirisri</name>
+		</developer>
+	</developers>
+	<scm>
+		<connection />
+		<developerConnection />
+		<tag />
+		<url />
+	</scm>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<compiler-plugin.version>3.13.0</compiler-plugin.version>
+		<war-plugin.version>3.4.0</war-plugin.version>
+
+		<!-- Java Version -->
+		<my.java>21</my.java>
+
+		<!-- Compile Scope  -->
+		<org.primefaces.version>15.0.0</org.primefaces.version>
+		<org.glassfish.faces.version>4.0.11</org.glassfish.faces.version>
+		<org.jboss.weld.version>6.0.1.Final</org.jboss.weld.version>
+		<jakarta.enterprise.cdi-el-api.version>4.1.0</jakarta.enterprise.cdi-el-api.version>
+		<org.slf4j.version>2.0.17</org.slf4j.version>
+		<ch.qos.logback.version>1.5.18</ch.qos.logback.version>
+		<org.webjars.npm.primeflex.version>3.3.1</org.webjars.npm.primeflex.version>
+
+		<!-- Provided Scope  -->
+		<jakartaee-api.version>11.0.0</jakartaee-api.version>
+		<org.projectlombok.version>1.18.38</org.projectlombok.version>
+
+		<!-- Build time -->
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+
+	</properties>
+
+	<dependencies>
+
+		<!-- Compile Scope  -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${org.primefaces.version}</version>
+			<classifier>jakarta</classifier>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>jakarta.faces</artifactId>
+			<version>${org.glassfish.faces.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-shaded</artifactId>
+			<version>${org.jboss.weld.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.enterprise</groupId>
+			<artifactId>jakarta.enterprise.cdi-el-api</artifactId>
+			<version>${jakarta.enterprise.cdi-el-api.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${ch.qos.logback.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>primeflex</artifactId>
+			<version>${org.webjars.npm.primeflex.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Provided Scope  -->
+
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-web-api</artifactId>
+			<version>${jakartaee-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${org.projectlombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>jsf-primefaces-jee11</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler-plugin.version}</version>
+				<configuration>
+					<source>${my.java}</source>
+					<target>${my.java}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${war-plugin.version}</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<attachClasses>true</attachClasses>
+					<archiveClasses>true</archiveClasses>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/jsf-primefaces-jee11">
+    <Resource name="BeanManager" 
+              auth="Container"
+              type="jakarta.enterprise.inject.spi.BeanManager"  />
+</Context>
