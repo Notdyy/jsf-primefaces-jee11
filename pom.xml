@@ -55,10 +55,15 @@
 		<org.slf4j.version>2.0.17</org.slf4j.version>
 		<ch.qos.logback.version>1.5.18</ch.qos.logback.version>
 		<org.webjars.npm.primeflex.version>4.0.0</org.webjars.npm.primeflex.version>
+		<org.hibernate.version>7.0.8.Final</org.hibernate.version>
+		<org.postgresql.version>42.7.7</org.postgresql.version>
 
 		<!-- Provided Scope  -->
 		<jakartaee-api.version>11.0.0</jakartaee-api.version>
 		<org.projectlombok.version>1.18.38</org.projectlombok.version>
+		
+		<!-- Test Scope -->
+		<com.h2database.version>2.3.232</com.h2database.version>
 
 		<!-- Build time -->
 		<timestamp>${maven.build.timestamp}</timestamp>
@@ -119,6 +124,20 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${org.hibernate.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${org.postgresql.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
 		<!-- Provided Scope  -->
 
 		<dependency>
@@ -134,6 +153,15 @@
 			<version>${org.projectlombok.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- Test Scope -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${com.h2database.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
