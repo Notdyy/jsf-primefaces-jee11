@@ -6,7 +6,7 @@
 
 	<groupId>my.example</groupId>
 	<artifactId>jsf-primefaces-jee11</artifactId>
-	<version>0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<name>jsf-primefaces-jee11</name>
