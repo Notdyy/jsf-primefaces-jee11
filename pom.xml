@@ -61,7 +61,7 @@
 		<!-- Provided Scope  -->
 		<jakartaee-api.version>11.0.0</jakartaee-api.version>
 		<org.projectlombok.version>1.18.38</org.projectlombok.version>
-		
+
 		<!-- Test Scope -->
 		<com.h2database.version>2.3.232</com.h2database.version>
 
@@ -104,6 +104,13 @@
 		</dependency>
 
 		<dependency>
+			<groupId>jakarta.data</groupId>
+			<artifactId>jakarta.data-api</artifactId>
+			<version>1.0.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${org.slf4j.version}</version>
@@ -128,6 +135,14 @@
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${org.hibernate.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-processor</artifactId>
+			<version>${org.hibernate.version}</version>
+			<optional>true</optional>
 			<scope>compile</scope>
 		</dependency>
 
@@ -161,7 +176,7 @@
 			<version>${com.h2database.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
@@ -182,8 +197,21 @@
 					<source>${my.java}</source>
 					<target>${my.java}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${org.projectlombok.version}</version>
+						</path>
+						<path>
+							<groupId>org.hibernate.orm</groupId>
+							<artifactId>hibernate-processor</artifactId>
+							<version>${org.hibernate.version}</version>
+						</path>
+					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
