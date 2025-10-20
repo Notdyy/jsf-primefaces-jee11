@@ -53,7 +53,7 @@
 		<org.jboss.weld.version>6.0.3.Final</org.jboss.weld.version>
 		<jakarta.enterprise.cdi-el-api.version>4.1.0</jakarta.enterprise.cdi-el-api.version>
 		<org.slf4j.version>2.0.17</org.slf4j.version>
-		<ch.qos.logback.version>1.5.18</ch.qos.logback.version>
+		<ch.qos.logback.version>1.5.20</ch.qos.logback.version>
 		<org.webjars.npm.primeflex.version>4.0.0</org.webjars.npm.primeflex.version>
 
 		<!-- Provided Scope  -->
