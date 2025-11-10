@@ -43,6 +43,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<compiler-plugin.version>3.14.0</compiler-plugin.version>
 		<war-plugin.version>3.4.0</war-plugin.version>
+		<my.maven.surefire>3.5.2</my.maven.surefire>
 
 		<!-- Java Version -->
 		<my.java>21</my.java>
@@ -98,6 +99,19 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.jboss.weld</groupId>
+			<artifactId>weld-core-impl</artifactId>
+			<version>${org.jboss.weld.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+		<dependency>
 			<groupId>jakarta.enterprise</groupId>
 			<artifactId>jakarta.enterprise.cdi-el-api</artifactId>
 			<version>${jakarta.enterprise.cdi-el-api.version}</version>
@@ -110,6 +124,7 @@
 			<version>${jakarta.data-api.version}</version>
 			<scope>compile</scope>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -140,12 +155,19 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>8.0.0.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-processor</artifactId>
 			<version>${org.hibernate.version}</version>
-			<optional>true</optional>
 			<scope>compile</scope>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -209,6 +231,11 @@
 							<artifactId>hibernate-processor</artifactId>
 							<version>${org.hibernate.version}</version>
 						</path>
+						<path>
+							<groupId>jakarta.data</groupId>
+							<artifactId>jakarta.data-api</artifactId>
+							<version>${jakarta.data-api.version}</version>
+						</path>
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
@@ -229,6 +256,18 @@
 					</archive>
 				</configuration>
 			</plugin>
+			<!-- Execute tomcat เพื่อให้ใช้ jakarta.data-api ได้ -->
+			
+			<plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${my.maven.surefire}</version>
+                <configuration>
+                    <argLine>-javaagent:${settings.localRepository}/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar</argLine>
+                </configuration>
+            </plugin>
+			
+
+
 		</plugins>
 	</build>
 

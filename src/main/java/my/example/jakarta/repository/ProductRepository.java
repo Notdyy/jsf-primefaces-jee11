@@ -8,5 +8,4 @@ import my.example.jakarta.entities.Product;
 @ApplicationScoped
 @Repository
 public interface ProductRepository extends CrudRepository<Product, String> {
-
 }

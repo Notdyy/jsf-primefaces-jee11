@@ -18,8 +18,12 @@ public class ProductService implements ProductServiceable {
 	
 	@Inject
 	public ProductService(ProductRepository productRepository) {
+		if (productRepository == null) {
+			log.error("ProductRepository cannot be null");
+		}
 		this.productRepository = productRepository;
 	}
+
 
 	@Transactional
 	@Override
