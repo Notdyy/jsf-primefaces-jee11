@@ -48,7 +48,7 @@
 
         <!-- Compile Scope  -->
         <org.primefaces.version>15.0.9</org.primefaces.version>
-        <org.glassfish.faces.version>4.1.3</org.glassfish.faces.version>
+        <org.glassfish.faces.version>4.1.4</org.glassfish.faces.version>
         <org.jboss.weld.version>6.0.3.Final</org.jboss.weld.version>
         <jakarta.enterprise.cdi-el-api.version>4.1.0</jakarta.enterprise.cdi-el-api.version>
         <org.slf4j.version>2.0.17</org.slf4j.version>
@@ -119,7 +119,6 @@
         </dependency>
 
         <!-- Provided Scope  -->
-
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-web-api</artifactId>
