@@ -24,7 +24,11 @@ public class HelloBean implements Serializable{
 	@Serial
 	private static final long serialVersionUID = 1L;
 	
-	private final HelloServiceable helloService;
+	private HelloServiceable helloService;
+	
+	public HelloBean() {
+        // Required by CDI proxy on TomEE / OpenWebBeans
+    }
 	
 	@Inject
 	public HelloBean(HelloServiceable helloService) {
