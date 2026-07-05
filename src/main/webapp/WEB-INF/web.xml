@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
-	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
-	version="6.0">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
 
 	<display-name>JSF PrimeFaces JEE11</display-name>
+
+    <session-config>
+        <session-timeout>720</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>true</secure>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
 	
 	<welcome-file-list>
-		<welcome-file>pages/hello.xhtml</welcome-file>
+		<welcome-file>pages/hello</welcome-file>
 	</welcome-file-list>
 
-	<resource-env-ref>
-		<resource-env-ref-name>BeanManager</resource-env-ref-name>
-		<resource-env-ref-type>jakarta.enterprise.inject.spi.BeanManager</resource-env-ref-type>
-	</resource-env-ref>
-
-	<listener>
-		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
-	</listener>
-
+    <!-- JSF configuration -->
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
@@ -26,9 +27,23 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.jsf</url-pattern>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
+
+    <context-param>
+        <param-name>jakarta.faces.PROJECT_STAGE</param-name>
+        <param-value>${faces.project.stage}</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>jakarta.faces.FACELETS_REFRESH_PERIOD</param-name>
+        <param-value>${faces.facelets.refresh.period}</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>jakarta.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>server</param-value>
+    </context-param>
 
 	<context-param>
 		<param-name>jakarta.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
@@ -40,11 +55,24 @@
 		<param-value>true</param-value>
 	</context-param>
 
+    <!-- Faces and CDI listeners -->
+    <listener>
+        <listener-class>${facesListener}</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>${cdiListener}</listener-class>
+    </listener>
+
 	<context-param>
 		<param-name>primefaces.MOVE_SCRIPTS_TO_BOTTOM</param-name>
 		<param-value>true</param-value>
 	</context-param>
-	
+
+    <context-param>
+        <param-name>primefaces.SUBMIT</param-name>
+        <param-value>partial</param-value>
+    </context-param>
 	
 	<context-param>
 		<param-name>primefaces.FONT_AWESOME</param-name>

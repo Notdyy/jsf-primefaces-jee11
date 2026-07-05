@@ -13,7 +13,7 @@
 	</application>
 
 	<application>
-		<message-bundle>com.scc.fpe.message.JSFMessages</message-bundle>
+        <message-bundle>my.example.jakarta.message.JSFMessages</message-bundle>
 	</application>
 
 	<application>
