@@ -53,7 +53,7 @@
 
         <!-- Compile Scope  -->
         <org.primefaces.version>15.0.16</org.primefaces.version>
-        <org.glassfish.faces.version>4.1.9</org.glassfish.faces.version>
+        <org.glassfish.faces.version>4.1.11</org.glassfish.faces.version>
         <org.jboss.weld.version>6.0.4.Final</org.jboss.weld.version>
         <org.slf4j.version>2.0.18</org.slf4j.version>
         <ch.qos.logback.version>1.5.37</ch.qos.logback.version>
