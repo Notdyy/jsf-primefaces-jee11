@@ -61,7 +61,7 @@
 
         <!-- Provided Scope  -->
         <jakartaee-api.version>11.0.0</jakartaee-api.version>
-        <org.projectlombok.version>1.18.46</org.projectlombok.version>
+        <org.projectlombok.version>1.18.48</org.projectlombok.version>
 
         <!-- Build time -->
         <timestamp>${maven.build.timestamp}</timestamp>
